@@ -28,6 +28,8 @@ Integration of iScroll into jQT with tabbar and toolbar implementations
 
 Change Log
 --------------------------------------------------------------------------------
+2011-11-02 Updated to iScroll 1.4.9, iScroll lite 1.4.6
+
 2011-07-21 JavaScript can now be executed from the tabbar. Insert JS code from
 either the href attribute or the onclick event.
 
@@ -249,7 +251,7 @@ Tabbar Dynamically Loaded Pages
       jQT.barsSettings = {
         autoLoad_iScroll: true,
         debug: false,
-        iscroll_lite: true,
+        iscroll_lite: false,
         phonegap: false,
         wrapperClass: 's-scrollwrapper'
       };
@@ -662,7 +664,19 @@ Tabbar Dynamically Loaded Pages
             $this.attr('id', scrollID);
             if (typeof(scroll) === 'undefined' || scroll === null) {
               iscroll = new iScroll(scrollID, {
-                desktopCompatibility: true
+                desktopCompatibility: true,
+                // form compatibility
+                onBeforeScrollStart:  function (e) {
+                                      var target = e.target;
+                                      while (target.nodeType != 1) {
+                                        target = target.parentNode;
+                                        if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA') {
+                                          e.preventDefault();
+                                          e.stopPropagation();
+                                        }
+                                      }
+                                    }
+
               });
               for (i in iscroll.options) {
                 if (iscroll.options.hasOwnProperty(i)) {
