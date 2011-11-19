@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
 <meta charset="UTF-8" />
@@ -19,17 +19,19 @@
   display:none;
 }
 #jqt #about {
-  font-size:13px;
-  text-align:center;
-  text-shadow:rgba(255, 255, 255, 0.3) 0 -1px 0;
+  padding: 70px 0 40px 0;
+  text-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0;
+  font-size: 13px;
+  text-align: center;
+  background: #161618;
 }
 #jqt #about p {
   margin-bottom:8px;
 }
-#jqt #about > div > div > p > a, h2 {
-  color:inherit;
-  font-weight:700;
-  text-decoration:none;
+#jqt #about a, #jqt #about h2 {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
 }
 </style>
 <script type="text/javascript" charset="utf-8">
@@ -264,22 +266,20 @@ $(function(){
 
 <div id="jqt">
 <!-- About -->
-  <div id="about" class="selectable">
+  <div id="about" class="selectable unfixed">
     <div class="s-scrollwrapper">
       <div>
-        <p style="padding-top: 30px;"><img src="jqtouch.png" style="-webkit-border-radius: 9px;"/></p>
-        <p><strong>jqtouch</strong><br />
-          Version 1.0 beta<br />
-          <a href="http://www.davidkaneda.com">By David Kaneda</a></p>
-        <p><em>Create powerful mobile apps with<br />
-          just HTML, CSS, and jQuery.</em></p>
-        <p><a href="http://twitter.com/jqtouch" target="_blank">@jqtouch on Twitter</a></p>
+        <p><img src="jqtouch.png"/></p>
+        <p><strong>jQTouch</strong><br />Version 1.0 beta<br />
+          <a href="http://www.davidkaneda.com">By David Kaneda</a>
+        </p>
+        <p><em>Create powerful mobile apps with<br />just HTML, CSS, and jQuery.</em></p>
         <h2>External Links</h2>
         <ul class="individual">
           <li><a href="http://www.jqtouch.com/" target="_blank">Homepage</a></li>
           <li><a href="http://www.twitter.com/jqtouch" target="_blank">Twitter</a></li>
           <br />
-          <li><a href="http://code.google.com/p/jqtouch/w/list" target="_blank">Google Code</a></li>
+          <li><a href="https://github.com/senchalabs/jQTouch" target="_blank">GitHub Repo</a></li>
           <li><a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#100;&#107;&#064;&#109;&#111;&#114;&#102;&#117;&#110;&#107;&#046;&#099;&#111;&#109;">Email</a></li>
           <br />
           <li style="width:100%;"><a href="http://tinyurl.com/support-jqt" target="_blank">Donate</a></li>
@@ -511,11 +511,11 @@ $(function(){
   </div>
 
 <!-- Animations - AnimDemo-->
-  <div id="animdemo">
+  <div id="animdemo" class="unfixed">
     <div class="s-scrollwrapper">
       <div>
         <div style="font-size: 1.5em; text-align: center; margin: 160px 0 90px; font-family: Marker felt;"> Pretty smooth, eh? </div>
-        <a style="margin:0 10px 120px;color:rgba(0,0,0,.9)" href="#" class="whiteButton goback">Go back</a>
+        <a style="color:rgba(0,0,0,.9)" href="#" class="whiteButton goback">Go back</a>
       </div>
     </div>
   </div>
@@ -527,7 +527,12 @@ $(function(){
 <!-- This is loaded dyanmically via (ironically) AJAX -->
 
 <!-- AJAX - Callback -->
-<!-- This is loaded dyanmically via (ironically) AJAX -->
+  <div id="callback">
+    <div class="toolbar">
+      <h1>AJAX Callback</h1>
+      <a class="back" href="#">AJAX</a>
+    </div>
+  </div>
 
 <!-- Callbacks -->
   <div id="callbacks">

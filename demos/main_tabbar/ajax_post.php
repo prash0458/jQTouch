@@ -8,7 +8,7 @@ if ($_POST["zip"]) {
     $title = $_POST['movie'];
 }
 ?>
-<div id="post">
+<div>
   <div class="toolbar">
     <h1><?php echo $title ?></h1>
     <a href="#" class="button back">Back</a>
@@ -33,4 +33,3 @@ if ($_POST["zip"]) {
     <a style="margin:0 10px;color:rgba(0,0,0,.9)" href="#" class="submit whiteButton">Submit</a>
   </form>
 </div>
-<div></div>
