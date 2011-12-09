@@ -629,7 +629,7 @@ Tabbar Dynamically Loaded Pages
 
           // Show tabbar now that it's been built, maybe
           if (!$('.current').hasClass('hide_tabbar')) {
-            $('#tabbar').show(function () {
+            $('#tabbar').show(0, function () {
               _debug('initTabbar hide tabbar');
               setPageHeight();
               setBarWidth();
