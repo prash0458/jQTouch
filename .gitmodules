@@ -1,0 +1,3 @@
+[submodule "extensions/jqt.bars/cubiq-iscroll"]
+	path = extensions/jqt.bars/cubiq-iscroll
+	url = git://github.com/cubiq/iscroll.git

@@ -731,7 +731,7 @@ Tabbar Dynamically Loaded Pages
             if (path) {
               i = path.indexOf('/jqt.bars.js');
               if (i > 0) {
-                path = path.substring(0, path.lastIndexOf('/') + 1);
+                path = path.substring(0, path.lastIndexOf('/')) + '/cubiq-iscroll/dist';
                 return false;
               }
             }
