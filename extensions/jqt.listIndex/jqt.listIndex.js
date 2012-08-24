@@ -1,11 +1,11 @@
 /*
 
-       _/    _/_/    _/_/_/_/_/                              _/       
-          _/    _/      _/      _/_/    _/    _/    _/_/_/  _/_/_/    
-     _/  _/  _/_/      _/    _/    _/  _/    _/  _/        _/    _/   
-    _/  _/    _/      _/    _/    _/  _/    _/  _/        _/    _/    
-   _/    _/_/  _/    _/      _/_/      _/_/_/    _/_/_/  _/    _/     
-  _/                                                                  
+       _/    _/_/    _/_/_/_/_/                              _/
+          _/    _/      _/      _/_/    _/    _/    _/_/_/  _/_/_/
+     _/  _/  _/_/      _/    _/    _/  _/    _/  _/        _/    _/
+    _/  _/    _/      _/    _/    _/  _/    _/  _/        _/    _/
+   _/    _/_/  _/    _/      _/_/      _/_/_/    _/_/_/  _/    _/
+  _/
 _/
 
 Created by David Kaneda <http://www.davidkaneda.com>
@@ -25,67 +25,8 @@ http://twitter.com/HeadDZombie
 https://github.com/DataZombies/
 
 Implementation of the cubiq.org's list index for jQT.
-
-Change Log
---------------------------------------------------------------------------------
-2011-03-20 - 1st production version
---------------------------------------------------------------------------------
-Dependencies - jqt.bars.js
-
-Add the 'indexed' class to any element on a page wth a <ul><li>...</li></ul>
-list you want to add a list index to. The index is automaticall build and
-attached to that page. Any dynamically loaded page with the indexed class on the
-page's top div will also automatically get a listIndex.
-
-The listIndex's class is 'listIndex' if you want to add your own styles.
-
-Settings:
-jQT.listIndexSettings.index: An array that contains the alphabetic charcters
-used to build the index.
-jQT.listIndexSettings.listSeperatorClass: The class name that is used in the
-list for the seperators. In this example the listSeperatorCLass is 'sep'.
-
-<!-- UI - Edge -->
- <div id="edge">
-   <div class="toolbar">
-     <h1></h1>
-     <a href="#" class="back"></a>
-   </div>
-   <div class="s-scrollwrapper indexed">
-     <div>
-       <ul class="edgetoedge">
-         <li class="sep">F</li>
-         <li><a href="#">Flintstone, <em>Fred</em></a></li>
-         <li><a href="#">Flintstone, <em>Pebble</em></a></li>
-         <li><a href="#">Flintstone, <em>Wilma</em></a></li>
-         <li class="sep">J</li>
-         <li><a href="#">Jetson, <em>Elroy</em></a></li>
-         <li><a href="#">Jetson, <em>George</em></a></li>
-         <li><a href="#">Jetson, <em>Jane</em></a></li>
-         <li><a href="#">Jetson, <em>Judy</em></a></li>
-         <li class="sep">R</li>
-         <li><a href="#">Rubble, <em>Bambam</em></a></li>
-         <li><a href="#">Rubble, <em>Barney</em></a></li>
-         <li><a href="#">Rubble, <em>Betty</em></a></li>
-       </ul>
-     </div>
-   </div>
- </div>
-
-To manually instantate a listIndex do one of the following:
-
-//multiple pages
-$(document).ready(function () {
-  initListIndices();
-});
-
-//single page
-$(document).ready(function () {
-  initListIndex('bigList');
-});
-
 */
-
+/*jslint bitwise: true, browser: true, devel: true, maxerr: 50, newcap: true, nomen: true, plusplus: true, regexp: true, sloppy: true, white: true */
 (function ($) {
   if ($.jQTouch) {
     $.jQTouch.addExtension(function listIndex(jQT) {
@@ -107,14 +48,12 @@ $(document).ready(function () {
           $wrapper = $('.' + jQT.barsSettings.wrapperClass, '#' + pageID);
 
           $('.' + jQT.listIndexSettings.listSeperatorClass, $page).each(function () {
-            var $me = $(this),
-                sepID = pageID + '_' + $me.attr('id').toUpperCase(),
-                sepText = pageID + '_' + $me.text().toUpperCase();
+            var $me = $(this);
 
             if ($me.attr('id')) {
-              $me.attr('id', sepID);
+              $me.attr('id', pageID + '_' + $me.attr('id').toUpperCase());
             } else {
-              $me.attr('id', sepText);
+              $me.attr('id', pageID + '_' + $me.text().toUpperCase());
             }
           });
 
