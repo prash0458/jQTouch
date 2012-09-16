@@ -533,7 +533,7 @@ https://github.com/DataZombies/
             if (path) {
               i = path.indexOf('/jqt.bars.js');
               if (i > 0) {
-                path = path.substring(0, path.lastIndexOf('/')) + '/cubiq-iscroll/dist/';
+                path = path.substring(0, path.lastIndexOf('/')) + '/iscroll/dist/';
                 return false;
               }
             }
